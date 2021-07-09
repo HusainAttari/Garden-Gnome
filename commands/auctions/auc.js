@@ -132,7 +132,7 @@ module.exports = {
 				.setFooter('Venture Auction Gardens')
 				.setImage(details.img)
 				message.channel.send(embed)
-				message.channel.send('<@!&825233232341106738>')
+				message.channel.send('<@&825233232341106738>')
 			})
 
 			
