@@ -43,7 +43,7 @@ module.exports = {
 			if (x.lc != '<@&825233232341106738>'){
 				const embed = new Discord.MessageEmbed()
 				.setColor('#aff0ae')
-				.setDescription(`**Last Call Pings :**\n${lc}`)
+				.setDescription(`**Last Call Pings :**\n${x.lc}`)
 				message.channel.send(embed)
 			}else{
 				const embed = new Discord.MessageEmbed()
