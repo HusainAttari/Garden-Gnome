@@ -23,7 +23,7 @@ const auctionSchema = mongoose.Schema({
 	acceptedPay : {type : String, required : true, default : "Coins only"},
 	img : reqString,
 	bundle : {type : Boolean, required : true, default : false},
-	lc : {type : String, default : '<@&825233232341106738>'}
+	lc : {type : String, required : true, default : '<@&825233232341106738>'}
 })
 
 module.exports = mongoose.model('Auctions', auctionSchema)
