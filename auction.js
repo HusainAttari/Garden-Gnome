@@ -140,7 +140,7 @@ module.exports.resetAuc = async (channelId) => {
 				offer : 0,
 				sellerId : '',
 				bundle : false,
-				lc : '',
+				lc : '<@&825233232341106738>',
 				img : ''
 			},{
 				upsert : true
