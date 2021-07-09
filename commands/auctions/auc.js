@@ -78,6 +78,7 @@ module.exports = {
 		message.channel.send('Please info the pokemon(s) you want to auction. (**Make sure to remove nicknames before info-ing the poke!**)')
 
 		let i = 0
+		let c = 0
 
 		if(arguments[3] === 'bundle'){
 			message.channel.send('Say `done` when you have info-ed all your pokemons')
@@ -86,6 +87,10 @@ module.exports = {
 			let collector = new Discord.MessageCollector(message.channel, filter, {time : 30000})
 
 			collector.on('collect', m => {
+				if (m.author.id === message.author.id && m.content.toLowerCase() === 'cancel'){
+					c = 1
+					collector.stop()
+				}
 				if (m.author.id === '666956518511345684' && i === 0){
 					details.poke = `[Click here for the list of pokemon](${m.url})`
 					i = 1
@@ -97,42 +102,44 @@ module.exports = {
 				}
 			})
 			collector.on('end', async collected => {
-				//sending the data to mongodb
-				await info.startAuc(message.channel.id, `${message.author.tag}'s Auction`, details.poke, details.rarity, details.nature, details.mints, details.ability, details.time, details.level, details.pay, details.img, details.ab, message.author.id, true)
+				if (c === 0){
+					//sending the data to mongodb
+					await info.startAuc(message.channel.id, `${message.author.tag}'s Auction`, details.poke, details.rarity, details.nature, details.mints, details.ability, details.time, details.level, details.pay, details.img, details.ab, message.author.id, true)
 
-				const embed = new Discord.MessageEmbed()
-				.setAuthor(`${message.author.tag}'s Auction`)
-				.addFields({
-					name : '**__Pokemon :__**',
-					value : details.poke,
-					inline : false
-				},{
-					name : "**__Time Remaining__**",
-					value : details.time,
-					inline : true
-				},{
-					name : "**__Highest Bidder__**",
-					value : 'No highest bidder',
-					inline : true
-				},{
-					name : "**__Current Offer__**",
-					value : 0,
-					inline : true
-				},{
-					name : "**__Auto-Buy__**",
-					value : details.ab,
-					inline : true
-				},{
-					name : "**__Accepted Payment__**",
-					value : details.pay,
-					inline : true
-				})
-				.setColor("#aaf0ae")
-				.setTimestamp()
-				.setFooter('Venture Auction Gardens')
-				.setImage(details.img)
-				message.channel.send(embed)
-				message.channel.send('<@&825233232341106738>')
+					const embed = new Discord.MessageEmbed()
+					.setAuthor(`${message.author.tag}'s Auction`)
+					.addFields({
+						name : '**__Pokemon :__**',
+						value : details.poke,
+						inline : false
+					},{
+						name : "**__Time Remaining__**",
+						value : details.time,
+						inline : true
+					},{
+						name : "**__Highest Bidder__**",
+						value : 'No highest bidder',
+						inline : true
+					},{
+						name : "**__Current Offer__**",
+						value : 0,
+						inline : true
+					},{
+						name : "**__Auto-Buy__**",
+						value : details.ab,
+						inline : true
+					},{
+						name : "**__Accepted Payment__**",
+						value : details.pay,
+						inline : true
+					})
+					.setColor("#aaf0ae")
+					.setTimestamp()
+					.setFooter('Venture Auction Gardens')
+					.setImage(details.img)
+					message.channel.send(embed)
+					message.channel.send('<@&825233232341106738>')
+				}
 			})
 
 			
@@ -250,7 +257,7 @@ module.exports = {
 			.setImage(details.img)
 			message.channel.send(embed)
 			message.channel.send('<@&825233232341106738>')
-		}).catch(err => {console.log(err)})
+		}).catch(err => {console.log(err); message.channel.send('Couldn\'t get the info of the pokemon to be auctioned. Please try again.')})
 		}
 
 		let counter = details.time
