@@ -43,14 +43,12 @@ module.exports = {
 			if (x.lc != '<@&825233232341106738>'){
 				const embed = new Discord.MessageEmbed()
 				.setColor('#aff0ae')
-				.setFooter('Venture Auction Gardens')
 				.setDescription(`**Last Call Pings :**\n${lc}`)
 				message.channel.send(embed)
 			}else{
 				const embed = new Discord.MessageEmbed()
 				.setDescription('No last call pings set. The <@&825233232341106738> role will be pinged.')
 				.setColor('#aff0ae')
-				.setFooter('Venture Auction Gardens')
 				message.channel.send(embed)
 			}
 		}
