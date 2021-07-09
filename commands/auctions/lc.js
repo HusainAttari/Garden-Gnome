@@ -14,7 +14,7 @@ module.exports = {
 		
 	  	let x = await info.getAuc(message.channel.id)
 		let lc = ''
-		if (arguments){
+		if (arguments.length){
 			for (var arg of arguments){
 				arg = arg.toLowerCase()
 				switch (arg){
@@ -35,6 +35,10 @@ module.exports = {
 						break
 				}
 			}
+			message.channel.send('Last call pings set!')
+
+			await info.addLc(message.channel.id, lc)
+			
 		}else{
 			if (x.lc != '<@&825233232341106738>'){
 				const embed = new Discord.MessageEmbed()
@@ -51,8 +55,6 @@ module.exports = {
 			}
 		}
 
-		message.channel.send('Last call pings set!')
-
-		await info.addLc(message.channel.id, lc)
+		
 	},
 }
