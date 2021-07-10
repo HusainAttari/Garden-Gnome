@@ -35,7 +35,7 @@ module.exports = {
 						break
 				}
 			}
-			if (lc){
+			if (lc != ''){
 				message.channel.send('Last call pings set!')
 
 				await info.addLc(message.channel.id, lc)
