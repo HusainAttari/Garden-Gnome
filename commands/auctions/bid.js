@@ -91,7 +91,7 @@ module.exports = {
 			inline : false
 		},{
 			name : "**__Time Remaining__**",
-			value : auc.time,
+			value : `${auc.time} mins`,
 			inline : true
 		},{
 			name : "**__Highest Bidder__**",
@@ -126,7 +126,7 @@ module.exports = {
 			inline : false
 		},{
 			name : "**__Time Remaining__**",
-			value : auc.time,
+			value : `${auc.time} mins`,
 			inline : true
 		},{
 			name : "**__Highest Bidder__**",
