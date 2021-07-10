@@ -35,9 +35,13 @@ module.exports = {
 						break
 				}
 			}
-			message.channel.send('Last call pings set!')
+			if (lc){
+				message.channel.send('Last call pings set!')
 
-			await info.addLc(message.channel.id, lc)
+				await info.addLc(message.channel.id, lc)
+			}else{
+				message.channel.send('Incorrect pings set. The available last call pings are [pog/legendary/mega/shiny/lr]')
+			}
 			
 		}else{
 			if (x.lc != '<@&825233232341106738>'){
