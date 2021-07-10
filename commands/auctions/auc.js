@@ -114,7 +114,7 @@ module.exports = {
 						inline : false
 					},{
 						name : "**__Time Remaining__**",
-						value : details.time,
+						value : `${details.time} mins`,
 						inline : true
 					},{
 						name : "**__Highest Bidder__**",
@@ -232,7 +232,7 @@ module.exports = {
 				inline : false
 			},{
 				name : "**__Time Remaining__**",
-				value : details.time,
+				value : `${details.time} mins`,
 				inline : true
 			},{
 				name : "**__Highest Bidder__**",
