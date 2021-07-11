@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const info = require('../../auction.js')
 
 module.exports = {
-	commands : ['bal','$'],
+	commands : ['bal','$', 'balance'],
   expectedArgs : '<bid>',
   permissionError : 'You do not have permission to run this command.',
   minArgs : 1,
