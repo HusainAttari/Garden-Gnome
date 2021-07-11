@@ -135,7 +135,8 @@ module.exports.listen = (client) => {
 
           if (!role || !member.roles.cache.has(role.id)) {
             message.reply(
-              `You must have the "${requiredRole}" role to use this command.`
+              //You must have the "${requiredRole}" role to use this command.
+	        `Pepega spotted! Only an auctioneer can use this <:pointnlaugh:863825865762537472>`
             )
             return
           }
