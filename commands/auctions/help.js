@@ -59,8 +59,8 @@ module.exports = {
       const embed = new Discord.MessageEmbed()
       .setColor('#aff0ae')
       .setFooter('Created by @Diablo#1234')
-      .setDescription('[Join here to support the creator](https://discord.gg/QQ5N4uspdK)\n[Click here for VAG Server link](https://discord.gg/tzfehaGZ2H)\n\nUse `!help <command>` to get more information about a command.\n\n**List of all available commands :**')
-      .addFields({
+      .setDescription('[Join here to support the creator](https://discord.gg/QQ5N4uspdK)\n[Click here for VAG Server link](https://discord.gg/tzfehaGZ2H)\n\nUse `!help <command>` to get more information about a command.\n\n**List of all available commands :**\n\n`!auc` - To start an auction\n`!!bid` - To bid on an ongoing auction\n`!status` - To view the status of an ongoing auction\n`!lc` - To set last call pings. (Auctioneer only)\n`!or` - To overwrite an auction. (Auctioneer only)\n`!reset` - To reset an ongoing auction. (Auctioneer only)')
+      /*.addFields({
           name : '`!auc`',
           value : 'To start an auction'
       },{
@@ -78,7 +78,8 @@ module.exports = {
       },{
           name : '`!status`',
           value : 'To view the current status of the auction'
-      })
+      })*/
+      .setTitle('Help')
       message.channel.send(embed)
     }
     
