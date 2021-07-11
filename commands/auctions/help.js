@@ -4,7 +4,7 @@ module.exports = {
 	commands : 'help',
   expectedArgs : '<command>',
   permissionError : 'You do not have permission to run this command.',
-  minArgs : 1,
+  minArgs : 0,
   maxArgs : 1,
   permissions : [],
   requiredRoles : [],
