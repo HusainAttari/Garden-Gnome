@@ -18,6 +18,11 @@ module.exports = {
 			for (var arg of arguments){
 				arg = arg.toLowerCase()
 				switch (arg){
+					case 'reset' :
+						lc = '<@&825233232341106738>'
+						message.channel.send('Last call pings have been reset!')
+						await info.addLc(message.channel.id, lc)
+						return
 					case 'pog' : 
 						lc = lc+ '<@&838115681689010197> '
 						break
