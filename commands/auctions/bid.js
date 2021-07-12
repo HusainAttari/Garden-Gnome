@@ -65,6 +65,10 @@ module.exports = {
 			message.channel.send('Invalid bid. Please bid a proper amount 🔫')
 			return
 		}
+	  	
+	  	if (auc.bidder != 'No highes bidder'){
+			message.channel.send(`${auc.bidder}, you have been outbid!`)
+		}
 
 		//updating the bidder and highest offer
 		await info.updateAuc(message.channel.id, buyer, bid).catch(err => {console.log(err)})
