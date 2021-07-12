@@ -66,7 +66,7 @@ module.exports = {
 			return
 		}
 	  	
-	  	if (auc.bidder != 'No highes bidder'){
+	  	if (auc.bidder != 'No highest bidder'){
 			message.channel.send(`${auc.bidder}, you have been outbid!`)
 		}
 
