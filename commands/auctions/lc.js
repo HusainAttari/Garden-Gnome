@@ -19,7 +19,7 @@ module.exports = {
 				arg = arg.toLowerCase()
 				switch (arg){
 					case 'reset' :
-						lc = '<@&825233232341106738>'
+						lc = '<@&825233232341106738> no last calls were set. Please ping last calls <:pepepray:864012819493289985>'
 						message.channel.send('Last call pings have been reset!')
 						await info.addLc(message.channel.id, lc)
 						return
@@ -49,7 +49,7 @@ module.exports = {
 			}
 			
 		}else{
-			if (x.lc != '<@&825233232341106738>'){
+			if (!x.lc.startsWith('<@&825233232341106738>')){
 				const embed = new Discord.MessageEmbed()
 				.setColor('#aff0ae')
 				.setDescription(`**Last Call Pings :**\n${x.lc}`)
