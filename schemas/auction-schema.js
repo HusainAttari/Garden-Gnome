@@ -23,7 +23,7 @@ const auctionSchema = mongoose.Schema({
 	acceptedPay : {type : String, required : true, default : "Coins only"},
 	img : reqString,
 	bundle : {type : Boolean, required : true, default : false},
-	lc : {type : String, required : true, default : '<@&825233232341106738>'}
+	lc : {type : String, required : true, default : '<@&825233232341106738> no last calls were set. Please ping last calls <:pepepray:864012819493289985>'}
 })
 
 module.exports = mongoose.model('Auctions', auctionSchema)
