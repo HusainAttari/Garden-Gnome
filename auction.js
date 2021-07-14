@@ -153,24 +153,27 @@ module.exports.resetAuc = async (channelId) => {
 }
 
 const banner = [
-	'https://imgur.com/ZxGSNFt',
-	'https://imgur.com/OD8ZR68',
-	'https://imgur.com/PbBw9OH',
-	'https://imgur.com/Vu2HEHI',
-	'https://imgur.com/q1aehn9',
-	'https://imgur.com/va6LKjN',
-	'https://imgur.com/jTs3oMB',
-	'https://imgur.com/wKz10a4',
-	'https://imgur.com/E9Ubjf8',
-	'https://imgur.com/uGTQYxO',
-	'https://imgur.com/I6av5d8',
-	'https://imgur.com/ADhtfqV',
-	'https://imgur.com/yGsLZs4',
-	'https://imgur.com/QWNnaV4',
-	'https://imgur.com/3UKfw8v',
-	'https://imgur.com/CKFy2mS',
-	'https://imgur.com/VAfgGO9',
-	'https://imgur.com/chiovCA'
+	'https://imgur.com/J6HDBQA',//blaziken-mega
+	'https://imgur.com/ZJvekHk',//centiskorch
+	'https://imgur.com/UH9Mb5p',//cosmog
+	'https://imgur.com/TQbke0b',//furret
+	'https://imgur.com/JYF7s0j',//ponyta-galar
+	'https://imgur.com/goqu0EE',//gardevoir-mega + gallade-mega
+	'https://imgur.com/KJMZiqq',//beedrill
+	'https://imgur.com/gtSwHUs',//keldeo
+	'https://imgur.com/53TJrzd',//lillipup
+	'https://imgur.com/y0sAGaA',//marshadow
+	'https://imgur.com/puALzxt',//meowth
+	'https://imgur.com/pLvPLDy',//mimikyu
+	'https://imgur.com/B8HXWUf',//pachirisu
+	'https://imgur.com/XG78cGX',//pichu
+	'https://imgur.com/ojCgtBo',//pikachu
+	'https://imgur.com/iRnfBfm',//raichu-alola
+	'https://imgur.com/CIrZDM0',//rowlet
+	'https://imgur.com/N9GX0ec',//spheal
+	'https://imgur.com/3uxVUBO',//wailord
+	'https://imgur.com/KxMjc9x',//zekrom
+	'https://imgur.com/Kb9KdRj'//zigzagoon-galar
 ]
 
 module.exports.houseOpen = () => {
