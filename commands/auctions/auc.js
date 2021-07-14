@@ -93,6 +93,7 @@ module.exports = {
 				}
 				if (m.author.id === '666956518511345684' && i === 0){
 					details.poke = `[Click here for the list of pokemon](${m.url})`
+					details.img = 'https://imgur.com/9ugCY36'
 					i = 1
 				}else if (m.author.id === message.author.id && m.content.toLowerCase() === 'done'){
 					collector.stop()
@@ -104,7 +105,7 @@ module.exports = {
 			collector.on('end', async collected => {
 				if (c === 0){
 					//sending the data to mongodb
-					await info.startAuc(message.channel.id, `${message.author.tag}'s Auction`, details.poke, details.rarity, details.nature, details.mints, details.ability, (details.time*60), details.level, details.pay, details.img, details.ab, message.author.id, true)
+					await info.startAuc(message.channel.id, `${message.author.tag}'s Auction`, details.poke, details.rarity, details.nature, details.mints, details.ability, details.time, details.level, details.pay, details.img, details.ab, message.author.id, true)
 
 					const embed = new Discord.MessageEmbed()
 					.setAuthor(`${message.author.tag}'s Auction`)
@@ -209,7 +210,7 @@ module.exports = {
 			
 			
 			//sending the data to mongodb
-			await info.startAuc(message.channel.id, `${message.author.tag}'s Auction`, details.poke, details.rarity, details.nature, details.mints, details.ability, (details.time*60), details.level, details.pay, details.img, details.ab, message.author.id, false)
+			await info.startAuc(message.channel.id, `${message.author.tag}'s Auction`, details.poke, details.rarity, details.nature, details.mints, details.ability, details.time, details.level, details.pay, details.img, details.ab, message.author.id, false)
 
 			//creating embed to send
 			const embed = new Discord.MessageEmbed()
@@ -260,13 +261,13 @@ module.exports = {
 		}).catch(err => {console.log(err); message.channel.send('Couldn\'t get the info of the pokemon to be auctioned. Please try again.')})
 		}
 		
-	  	let counter = 0
+	  	let counter = details.time
 		let timer = setInterval(async f => {
 			let x = await info.getAuc(message.channel.id)
 			if (x.time != 0){
-				counter = x.time - 1
+				counter--
 				await info.updateTime(message.channel.id, counter)
-				if (details.time >= 60 && x.time === 15*60){
+				if (details.time >= 60 && x.time === 15){
 					message.channel.send(x.lc)
 				}
 				if (counter === 0){
@@ -280,6 +281,6 @@ module.exports = {
 			}else{
 				clearInterval(timer)
 			}
-		}, 1000)
+		}, 60000)
 	},
 }
