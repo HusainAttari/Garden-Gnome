@@ -95,7 +95,7 @@ module.exports = {
 			inline : false
 		},{
 			name : "**__Time Remaining__**",
-			value : `${auc.time} mins`,
+			value : `${Math.floor(auc.time/1000)} mins`,
 			inline : true
 		},{
 			name : "**__Highest Bidder__**",
@@ -130,7 +130,7 @@ module.exports = {
 			inline : false
 		},{
 			name : "**__Time Remaining__**",
-			value : `${auc.time} mins`,
+			value : `${Math.floor(auc.time/1000)} mins`,
 			inline : true
 		},{
 			name : "**__Highest Bidder__**",
@@ -156,10 +156,10 @@ module.exports = {
 		}
 	  
 	  	//extension
-	  	if (auc.time <4){
+	  	if (auc.time <4000){
 			auc.time = auc.time + 2000
 			await info.updateTime(message.channel.id, auc.time)
-		}else if (auc.time === 4){
+		}else if (auc.time === 4000){
 			await info.updateTime(message.channel.id, 5000)
 		}
 
