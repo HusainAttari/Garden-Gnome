@@ -142,7 +142,7 @@ module.exports.resetAuc = async (channelId) => {
 				bundle : false,
 				lc : '<@&825233232341106738> no last calls were set. Please ping last calls <:pepepray:864012819493289985>',
 				img : '',
-				auto : 0
+				auto : 'N/A'
 			},{
 				upsert : true
 			})
