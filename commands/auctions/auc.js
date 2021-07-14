@@ -263,7 +263,7 @@ module.exports = {
 		let timer = setInterval(async f => {
 			let x = await info.getAuc(message.channel.id)
 			if (x.time != 0){
-			x.time--
+			x.time = x.time - 1000
 			await info.updateTime(message.channel.id, x.time)
 			if (details.time >= 60 && x.time === 15){
 				message.channel.send(x.lc)
