@@ -154,6 +154,14 @@ module.exports = {
 		.setFooter('Venture Auction Gardens')
 		message.channel.send(embed)
 		}
+	  
+	  	//extension
+	  	if (auc.time <4){
+			auc.time = auc.time + 2000
+			await info.updateTime(message.channel.id, auc.time)
+		}else if (auc.time === 4){
+			await info.updateTime(message.channel.id, 5000)
+		}
 
 		//checking for autoBuy
 		if (bid >= auc.autoBuy){
