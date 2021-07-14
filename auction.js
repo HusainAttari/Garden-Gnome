@@ -169,7 +169,8 @@ const banner = [
 	'https://imgur.com/QWNnaV4',
 	'https://imgur.com/3UKfw8v',
 	'https://imgur.com/CKFy2mS',
-	'https://imgur.com/VAfgGO9'
+	'https://imgur.com/VAfgGO9',
+	'https://imgur.com/chiovCA'
 ]
 
 module.exports.houseOpen = () => {
