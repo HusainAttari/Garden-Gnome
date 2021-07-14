@@ -93,7 +93,7 @@ module.exports = {
 				}
 				if (m.author.id === '666956518511345684' && i === 0){
 					details.poke = `[Click here for the list of pokemon](${m.url})`
-					details.img = 'https://imgur.com/9ugCY36'
+					details.img = 'https://imgur.com/Qa4utJA'
 					i = 1
 				}else if (m.author.id === message.author.id && m.content.toLowerCase() === 'done'){
 					collector.stop()
