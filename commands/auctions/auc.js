@@ -259,12 +259,13 @@ module.exports = {
 			message.channel.send('<@&825233232341106738>')
 		}).catch(err => {console.log(err); message.channel.send('Couldn\'t get the info of the pokemon to be auctioned. Please try again.')})
 		}
-
+		
+	  	var c = 0
 		let timer = setInterval(async f => {
 			let x = await info.getAuc(message.channel.id)
 			if (x.time != 0){
-			x.time = x.time - 1000
-			await info.updateTime(message.channel.id, x.time)
+			c = x.time - 1000
+			await info.updateTime(message.channel.id, c)
 			if (details.time >= 60 && x.time === 15){
 				message.channel.send(x.lc)
 			}
