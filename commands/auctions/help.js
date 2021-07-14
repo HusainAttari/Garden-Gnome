@@ -18,10 +18,10 @@ module.exports = {
          .setFooter('Aliases : auction, auc')
          .setColor('#aff0ae')
          message.channel.send(embed)
-       }else if (cmd === 'bal' || cmd === 'balance' || cmd === '$'){
+       }else if (cmd === 'bal' || cmd === 'balance' || cmd === '$' || cmd === 'money'){
          const embed = new Discord.MessageEmbed()
          .setColor('#aff0ae')
-         .setFooter('Aliases : bal, balance, $')
+         .setFooter('Aliases : bal, balance, $, money')
          .setDescription(`**${cmd} :**\nDescription : To bid on an ongoing auction\nArguments : <bid> [Pokemons/Stones if accepted]\nFor example, \`!bal 50k\`, \`!$ 100k\`, \`!balance 150m LR Xerneas\``)
          message.channel.send(embed)
        }else if (cmd === 'lc' || cmd === 'lastcall'){
@@ -60,25 +60,6 @@ module.exports = {
       .setColor('#aff0ae')
       .setFooter('Created by @Diablo#1234')
       .setDescription('[Join here to support the creator](https://discord.gg/QQ5N4uspdK)\n[Click here for VAG Server link](https://discord.gg/tzfehaGZ2H)\n\nUse `!help <command>` to get more information about a command.\n\n**List of all available commands :**\n\n`!auc` - To start an auction\n`!bal` - To bid on an ongoing auction\n`!status` - To view the status of an ongoing auction\n`!lc` - To set last call pings. (Auctioneer only)\n`!or` - To overwrite an auction. (Auctioneer only)\n`!reset` - To reset an ongoing auction. (Auctioneer only)')
-      /*.addFields({
-          name : '`!auc`',
-          value : 'To start an auction'
-      },{
-          name : '`!bid`',
-          value : 'To bid on an auction'
-      },{
-          name : '`!lc`',
-          value : 'To set last call pings. (Auctioneer only)'
-      },{
-          name : '`!or`',
-          value : 'To overwrite auctions. (Auctioneer only)'
-      },{
-          name : '`!reset`',
-          value : 'To reset an ongoing auction. (Auctioneer only)'
-      },{
-          name : '`!status`',
-          value : 'To view the current status of the auction'
-      })*/
       .setTitle('Help')
       message.channel.send(embed)
     }
