@@ -64,7 +64,7 @@ module.exports = {
 		.setAuthor(auc.seller)
 		.addFields({
 			name : '**__Pokemon :__**',
-			value : auc.poke,
+			value : auc.pokemon,
 			inline : false
 		},{
 			name : "**__Time Remaining__**",
