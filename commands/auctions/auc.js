@@ -104,7 +104,7 @@ module.exports = {
 			collector.on('end', async collected => {
 				if (c === 0){
 					//sending the data to mongodb
-					await info.startAuc(message.channel.id, `${message.author.tag}'s Auction`, details.poke, details.rarity, details.nature, details.mints, details.ability, details.time, details.level, details.pay, details.img, details.ab, message.author.id, true)
+					await info.startAuc(message.channel.id, `${message.author.tag}'s Auction`, details.poke, details.rarity, details.nature, details.mints, details.ability, details.time*1000, details.level, details.pay, details.img, details.ab, message.author.id, true)
 
 					const embed = new Discord.MessageEmbed()
 					.setAuthor(`${message.author.tag}'s Auction`)
@@ -114,7 +114,7 @@ module.exports = {
 						inline : false
 					},{
 						name : "**__Time Remaining__**",
-						value : `${details.time} mins`,
+						value : `${Math.floor(details.time/1000)} mins`,
 						inline : true
 					},{
 						name : "**__Highest Bidder__**",
@@ -209,7 +209,7 @@ module.exports = {
 			
 			
 			//sending the data to mongodb
-			await info.startAuc(message.channel.id, `${message.author.tag}'s Auction`, details.poke, details.rarity, details.nature, details.mints, details.ability, details.time, details.level, details.pay, details.img, details.ab, message.author.id, false)
+			await info.startAuc(message.channel.id, `${message.author.tag}'s Auction`, details.poke, details.rarity, details.nature, details.mints, details.ability, details.time*1000, details.level, details.pay, details.img, details.ab, message.author.id, false)
 
 			//creating embed to send
 			const embed = new Discord.MessageEmbed()
@@ -232,7 +232,7 @@ module.exports = {
 				inline : false
 			},{
 				name : "**__Time Remaining__**",
-				value : `${details.time} mins`,
+				value : `${Math.floor(details.time/1000)} mins`,
 				inline : true
 			},{
 				name : "**__Highest Bidder__**",
@@ -279,6 +279,6 @@ module.exports = {
 		}else{
 			clearInterval(timer)
 		}
-		}, 60000)
+		}, 1000)
 	},
 }
