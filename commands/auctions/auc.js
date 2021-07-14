@@ -137,7 +137,7 @@ module.exports = {
 					.setColor("#aaf0ae")
 					.setTimestamp()
 					.setFooter('Venture Auction Gardens')
-					.setImage(details.img)
+					.setImage(details.img, 200, 200)
 					message.channel.send(embed)
 					message.channel.send('<@&825233232341106738>')
 				}
