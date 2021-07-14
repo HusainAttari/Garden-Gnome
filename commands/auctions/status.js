@@ -35,7 +35,7 @@ module.exports = {
 			inline : false
 		},{
 			name : "**__Time Remaining__**",
-			value : `${Math.floor(auc.time/1000)} mins`,
+			value : `${auc.time} mins`,
 			inline : true
 		},{
 			name : "**__Highest Bidder__**",
@@ -68,7 +68,7 @@ module.exports = {
 			inline : false
 		},{
 			name : "**__Time Remaining__**",
-			value : `${Math.floor(auc.time/1000)} mins`,
+			value : `${auc.time} mins`,
 			inline : true
 		},{
 			name : "**__Highest Bidder__**",
