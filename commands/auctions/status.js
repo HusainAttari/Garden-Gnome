@@ -90,6 +90,7 @@ module.exports = {
 		.setFooter('Venture Auction Gardens')
 		.setColor("#aaf0ae")
 		.setTimestamp()
+		.setImage(auc.img)
 		message.channel.send(embed)
 	}
 	},
