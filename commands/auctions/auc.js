@@ -16,6 +16,10 @@ module.exports = {
 			message.channel.send('An auction is currently ongoing in this room.')
 			return
 		}
+	  
+	  	function wait(ms){
+			return new Promise(r => {setTimeout(r, ms)})
+		}
 
 		let details = {
 			poke : '',
@@ -140,6 +144,27 @@ module.exports = {
 					.setImage(details.img)
 					message.channel.send(embed)
 					message.channel.send('<@&825233232341106738>')
+					
+					const e = new Discord.MessageEmbed()
+					.setAuthor(`${message.author.tag}'s Auction`)
+					.setColor('#aff0ae')
+					.setTimestamp()
+					.setFooter('Venture Auction Gardens')
+					.setImage(details.img)
+					.addFields({
+						name : `**Channel :**`,
+						value : `${message.channel.id.toString()}`
+					}, {
+						name : `**Pokemon :**`,
+						value : `**Bundle**`
+					}, {
+						name : `**Duration :**`,
+						value : details.time
+					})
+					message.channels.cache.get('865543980598820865').send(e).then(async msg => {
+						await wait(details.time*60*1000)
+						msg.delete()
+					}).catch(err => console.log(err))
 				}
 			})
 
@@ -258,6 +283,28 @@ module.exports = {
 			.setImage(details.img)
 			message.channel.send(embed)
 			message.channel.send('<@&825233232341106738>')
+			
+			const e = new Discord.MessageEmbed()
+			.setAuthor(`${message.author.tag}'s Auction`)
+			.setColor('#aff0ae')
+			.setTimestamp()
+			.setFooter('Venture Auction Gardens')
+			.setImage(details.img)
+			.addFields({
+				name : `**Channel :**`,
+				value : `${message.channel.id.toString()}`
+			}, {
+				name : `**Pokemon :**`,
+				value : `${details.rarity} ${details.poke} (Lvl. ${details.level})`
+			}, {
+				name : `**Duration :**`,
+				value : details.time
+			})
+			message.channels.cache.get('865543980598820865').send(e).then(async msg => {
+				await wait(details.time*60*1000)
+				msg.delete()
+			})
+			
 		}).catch(err => {console.log(err); message.channel.send('Couldn\'t get the info of the pokemon to be auctioned. Please try again.')})
 		}
 		
