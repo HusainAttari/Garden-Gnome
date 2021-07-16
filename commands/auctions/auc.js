@@ -35,7 +35,7 @@ module.exports = {
 		}
 	
 		//checking for valid time
-		if (!isNaN(arguments[0])){
+		if (!isNaN(arguments[0]) && arguments[0] >= 15 ){
 			details.time = arguments[0]
 		}else{
 			message.channel.send('Please enter a valid time for the auction!')
@@ -43,7 +43,7 @@ module.exports = {
 		}
 
 		//checking for auto-buy
-		if (arguments[1] === 'na' || !isNaN(arguments[1])) {
+		if (arguments[1] === 'na' || (!isNaN(arguments[1]) && arguments[1] >= 500000)) {
 			if (arguments[1] === 'na'){
 				details.ab = 'N/A'
 			}else{
@@ -308,7 +308,7 @@ module.exports = {
 		}).catch(err => {console.log(err); message.channel.send('Couldn\'t get the info of the pokemon to be auctioned. Please try again.')})
 		}
 		
-	  	let counter = details.time
+	  	
 		let timer = setInterval(async f => {
 			let x = await info.getAuc(message.channel.id)
 			if (x.time != 0){
@@ -318,7 +318,78 @@ module.exports = {
 				}
 				let y = await info.getAuc(message.channel.id)
 				if (y.time === 0){
-					message.channel.send(`**Auction Completed!**\n${x.bidder} meet <@${x.sellerId}> in ${message.guild.channels.cache.get('825240467595329536').toString()} or ${message.guild.channels.cache.get('840078518121398332').toString()}`)
+					if (y.bundle === false){
+						const embed1 = new Discord.MessageEmbed()
+						.setAuthor(y.seller)
+						.addFields({
+							name : '**__Pokemon :__**',
+							value : `${y.rarity} ${y.pokemon} (Lvl. ${y.level})`,
+							inline : false
+						},{
+							name : '**__Nature :__**',
+							value : y.nature,
+							inline : true
+						},{
+							name : '**__Mints used :__**',
+							value : y.mints,
+							inline : true
+						},{
+							name : '**__Ability :__**',
+							value : y.ability,
+							inline : false
+						},{
+							name : "**__Highest Bidder__**",
+							value : y.bidder,
+							inline : true
+						},{
+							name : "**__Current Offer__**",
+							value : y.offer,
+							inline : true
+						},{
+							name : "**__Auto-Buy__**",
+							value : y.autoBuy,
+							inline : true
+						},{
+							name : "**__Accepted Payment__**",
+							value : y.pay,
+							inline : true
+						})
+						.setColor("#aaf0ae")
+						.setTimestamp()
+						.setImage(y.img)
+						.setFooter('Venture Auction Gardens')
+						message.channel.send(embed1)
+					}else{			
+						const embed1 = new Discord.MessageEmbed()
+						.setAuthor(y.seller)
+						.addFields({
+							name : '**__Pokemon :__**',
+							value : y.pokemon,
+							inline : false
+						},{
+							name : "**__Highest Bidder__**",
+							value : y.bidder,
+							inline : true
+						},{
+							name : "**__Current Offer__**",
+							value : y.offer,
+							inline : true
+						},{
+							name : "**__Auto-Buy__**",
+							value : y.autoBuy,
+							inline : true
+						},{
+							name : "**__Accepted Payment__**",
+							value : y.pay,
+							inline : true
+						})
+						.setFooter('Venture Auction Gardens')
+						.setColor("#aaf0ae")
+						.setTimestamp()
+						.setImage(y.img)
+						message.channel.send(embed1)
+					}
+					message.channel.send(`**Auction Completed!**\n${y.bidder} meet <@${y.sellerId}> in ${message.guild.channels.cache.get('825240467595329536').toString()} or ${message.guild.channels.cache.get('840078518121398332').toString()}`)
 					message.channel.send(info.houseOpen())
 
 					await info.resetAuc(message.channel.id)
