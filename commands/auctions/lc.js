@@ -38,6 +38,9 @@ module.exports = {
 					case 'mega' :
 						lc = lc + '<@&825257756008382475> '
 						break
+					case 'test' :
+						lc = lc + '<@&865577816795250698> '
+						break
 				}
 			}
 			if (lc != ''){
