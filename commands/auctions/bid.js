@@ -159,8 +159,10 @@ module.exports = {
 	  	//extension
 	  	if (auc.time === 4){
 			await info.updateTime(message.channel.id, 1)
+			message.channel.send(`Auction is extended by 1 minute!\nRemaining time : **${auc.time+1} minutes**`)
 		}else if (auc.time < 4){
 			await info.updateTime(message.channel.id, 2)
+			message.channel.send(`Auction is extended by 2 minutes!\nRemaining time : **${auc.time+2} minutes**`)
 		}
 	  
 		//checking for autoBuy
