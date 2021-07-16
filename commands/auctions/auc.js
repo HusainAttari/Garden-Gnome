@@ -308,7 +308,7 @@ module.exports = {
 		}).catch(err => {console.log(err); message.channel.send('Couldn\'t get the info of the pokemon to be auctioned. Please try again.')})
 		}
 		
-	  	//let counter = details.time
+	  	let counter = details.time
 		let timer = setInterval(async f => {
 			let x = await info.getAuc(message.channel.id)
 			if (x.time != 0){
@@ -316,7 +316,8 @@ module.exports = {
 				if (details.time >= 60 && x.time === 15){
 					message.channel.send(x.lc)
 				}
-				if (x.time === 0){
+				let y = await info.getAuc(message.channel.id)
+				if (y.time === 0){
 					message.channel.send(`**Auction Completed!**\n${x.bidder} meet <@${x.sellerId}> in ${message.guild.channels.cache.get('825240467595329536').toString()} or ${message.guild.channels.cache.get('840078518121398332').toString()}`)
 					message.channel.send(info.houseOpen())
 
