@@ -10,7 +10,7 @@ module.exports = {
   permissions : [],
   requiredRoles : [],
 	requiredId : [],
-  callback : async (message, arguments, text) => {
+  callback : async (message, arguments, text, client) => {
 		const auc = await info.getAuc(message.channel.id)
 		if (auc.pokemon != '') {
 			message.channel.send('An auction is currently ongoing in this room.')
