@@ -153,13 +153,13 @@ module.exports = {
 					.setImage(details.img)
 					.addFields({
 						name : `**Channel :**`,
-						value : `${message.channel.id.toString()}`
+						value : `<#${message.channel.id}>`
 					}, {
 						name : `**Pokemon :**`,
 						value : `**Bundle**`
 					}, {
 						name : `**Duration :**`,
-						value : details.time
+						value : `${details.time} mins`
 					})
 					client.channels.cache.get('865543980598820865').send(e).then(async msg => {
 						await wait(details.time*60*1000)
@@ -292,13 +292,13 @@ module.exports = {
 			.setImage(details.img)
 			.addFields({
 				name : `**Channel :**`,
-				value : `${message.channel.id.toString()}`
+				value : `<#${message.channel.id}>`
 			}, {
 				name : `**Pokemon :**`,
 				value : `${details.rarity} ${details.poke} (Lvl. ${details.level})`
 			}, {
 				name : `**Duration :**`,
-				value : details.time
+				value : `${details.time} mins`
 			})
 			client.channels.cache.get('865543980598820865').send(e).then(async msg => {
 				await wait(details.time*60*1000)
