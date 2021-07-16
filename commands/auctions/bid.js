@@ -40,27 +40,27 @@ module.exports = {
 			}
 
 		if (typeof bid === 'number'){
-		//checking for valid upbids
-		if (auc.offer == 0){
-			if (bid<50000){
-				message.channel.send('Invalid bid. Minimum starting bid is 50k.')
-				return
-			}else {
-				buyer = `<@${message.author.id}>`
-			}
-		}else if(auc.rarity.includes('VAG_LR')){
-			if (bid<(auc.offer+50000)){
-				message.channel.send('Invalid bid. Minimum upbid is 50k.')
-				return
-			}
-		}else{
-			if (bid<(auc.offer+20000)){
-				message.channel.send('Invalid bid. Minimum upbid is 20k.')
-				return
+			//checking for valid upbids
+			if (auc.offer == 0){
+				if (bid<50000){
+					message.channel.send('Invalid bid. Minimum starting bid is 50k.')
+					return
+				}else {
+					buyer = `<@${message.author.id}>`
+				}
+			}else if(auc.rarity.includes('VAG_LR')){
+				if (bid<(auc.offer+50000)){
+					message.channel.send('Invalid bid. Minimum upbid is 50k.')
+					return
+				}
 			}else{
-				buyer = `<@${message.author.id}>`
+				if (bid<(auc.offer+20000)){
+					message.channel.send('Invalid bid. Minimum upbid is 20k.')
+					return
+				}else{
+					buyer = `<@${message.author.id}>`
+				}
 			}
-		}
 		}else{
 			message.channel.send('Invalid bid. Please bid a proper amount 🔫')
 			return
