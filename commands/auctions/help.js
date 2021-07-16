@@ -14,7 +14,7 @@ module.exports = {
        let cmd = arguments[0]
        if (cmd === 'auc' || cmd === 'auction'){
          const embed = new Discord.MessageEmbed()
-         .setDescription(`**${cmd} :**\nDescription : To start an auction\nArguments : <time> <Auto-buy> <accepted payment> <bundle>\nFor example, \`!auc 60 100000 coins\`\nP.S. Mention bundle if you want to do a bundle. If not, leave it out.`)
+         .setDescription(`**${cmd} :**\nDescription : To start an auction\nArguments : <time> <Auto-buy> <accepted payment> <bundle>\nFor example, \`!auc 60 100000 coins\`\nP.S. Mention bundle if you want to do a bundle. If not, leave it out.\nThe available modes of payments are :\n1. coins - Coins only\n2. stones - Coins and Stones\n3. pokes - Coins and Pokes\n4. all - Coins, Pokes and Stones`)
          .setFooter('Aliases : auction, auc')
          .setColor('#aff0ae')
          message.channel.send(embed)
