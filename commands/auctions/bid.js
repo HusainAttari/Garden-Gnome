@@ -52,6 +52,8 @@ module.exports = {
 				if (bid<(auc.offer+50000)){
 					message.channel.send('Invalid bid. Minimum upbid is 50k.')
 					return
+				}else{
+					buyer = `<@${message.author.id}>`
 				}
 			}else{
 				if (bid<(auc.offer+20000)){
