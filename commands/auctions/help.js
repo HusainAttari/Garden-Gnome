@@ -34,7 +34,7 @@ module.exports = {
          const embed = new Discord.MessageEmbed()
          .setFooter('Aliases : or, override')
          .setColor('#aff0ae')
-         .setDescription(`**${cmd} :**\nDescription : Overwrite the current auction. (Auctioneer only)\nArguments : <offer> <bidder id/mention the bidder>\nFor example, \`!or 100k @user\``)
+         .setDescription(`**${cmd} :**\nDescription : Overwrite the current auction. (Auctioneer only)\nArguments : <offer> <@bidder>\nFor example, \`!or 100k @user\``)
          message.channel.send(embed)
        }else if (cmd === 'reset'){
          const embed = new Discord.MessageEmbed()
