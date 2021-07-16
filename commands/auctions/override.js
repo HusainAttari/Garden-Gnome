@@ -30,12 +30,15 @@ module.exports = {
 
 			if (message.mentions.members.first()){
 				buyer = `<@${message.mentions.members.first().id}>`
+				
+				await info.updateAuc(message.channel.id, buyer, bid).catch(err => console.log(err))
+
+				message.channel.send('Auction has been successfully overwritten!')
 			}else{
 				message.channel.send('Please mention the last valid bid.')
+				return
 			}
 
-			await info.updateAuc(message.channel.id, buyer, bid).catch(err => console.log(err))
-
-			message.channel.send('Auction has been successfully overwritten!')
+			
 	},
 }
