@@ -156,6 +156,13 @@ module.exports = {
 		message.channel.send(embed)
 		}
 	  
+	  	//extension
+	  	if (auc.time === 4){
+			await info.updateTime(message.channel.id, 1)
+		}else if (auc.time < 4){
+			await info.updateTime(message.channel.id, 2)
+		}
+	  
 		//checking for autoBuy
 		if (bid >= auc.autoBuy){
 			message.channel.send(`**Auto-Buy Triggered!**\n<@${auc.sellerId}> meet ${buyer} in ${message.guild.channels.cache.get('825240467595329536').toString()} or ${message.guild.channels.cache.get('840078518121398332').toString()}`)
