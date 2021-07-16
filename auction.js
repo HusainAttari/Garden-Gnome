@@ -187,7 +187,9 @@ module.exports.updateTime = async (channelId, time) => {
 			await aucSchema.findOneAndUpdate({
 				channelId : channelId
 			},{
-				time : time
+				$inc : {
+					time : time
+				}
 			},{
 				upsert : true
 			})
