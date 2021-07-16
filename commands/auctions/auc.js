@@ -269,7 +269,7 @@ module.exports = {
 				if (details.time >= 60 && x.time === 15){
 					message.channel.send(x.lc)
 				}
-				if (counter === 0){
+				if (x.time === 0){
 					message.channel.send(`**Auction Completed!**\n${x.bidder} meet <@${x.sellerId}> in ${message.guild.channels.cache.get('825240467595329536').toString()} or ${message.guild.channels.cache.get('840078518121398332').toString()}`)
 					message.channel.send(info.houseOpen())
 
