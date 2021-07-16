@@ -161,7 +161,7 @@ module.exports = {
 						name : `**Duration :**`,
 						value : details.time
 					})
-					message.channels.cache.get('865543980598820865').send(e).then(async msg => {
+					message.guild.channels.cache.get('865543980598820865').send(e).then(async msg => {
 						await wait(details.time*60*1000)
 						msg.delete()
 					}).catch(err => console.log(err))
@@ -300,7 +300,7 @@ module.exports = {
 				name : `**Duration :**`,
 				value : details.time
 			})
-			message.channels.cache.get('865543980598820865').send(e).then(async msg => {
+			message.guild.channels.cache.get('865543980598820865').send(e).then(async msg => {
 				await wait(details.time*60*1000)
 				msg.delete()
 			})
