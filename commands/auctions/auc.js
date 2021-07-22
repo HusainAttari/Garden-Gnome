@@ -317,7 +317,7 @@ module.exports = {
 					message.channel.send(x.lc)
 				}
 				let y = await info.getAuc(message.channel.id)
-				console.log(y.time)
+				
 				if (y.time === 0){
 					if (y.bundle === false){
 						const embed1 = new Discord.MessageEmbed()
