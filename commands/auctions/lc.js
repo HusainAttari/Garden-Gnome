@@ -8,7 +8,7 @@ module.exports = {
   minArgs : 0,
   maxArgs : null,
   permissions : [],
-  requiredRoles : ['Auctioneer'],
+  requiredRoles : ['Auctioneer', 'Private Room Owner'],
 	requiredId : [],
   callback : async (message, arguments, text) => {
 		
@@ -40,6 +40,12 @@ module.exports = {
 						break
 					case 'test' :
 						lc = lc + '<@&865577816795250698> '
+						break
+					case 'excl' :
+						lc = lc + '<@&867476785838161930> '
+						break
+					case 'legs' :
+						lc = lc + '<@&825256942791819264> '
 						break
 				}
 			}
