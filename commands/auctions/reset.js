@@ -8,7 +8,7 @@ module.exports = {
   minArgs : 0,
   maxArgs : 0,
   permissions : [],
-  requiredRoles : ['Auctioneer', 'Private Room Owner'],
+  requiredRoles : ['Auctioneer', 'PrivateRoomOwner'],
 	requiredId : [],
   callback : async (message, arguments, text) => {
 		await info.resetAuc(message.channel.id)
