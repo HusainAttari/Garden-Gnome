@@ -314,6 +314,77 @@ module.exports = {
 			if (x.time != 0){
 				await info.updateTime(message.channel.id, -1)
 				if (details.time >= 60 && x.time === 15){
+					if (x.bundle === false){
+						const embed1 = new Discord.MessageEmbed()
+						.setAuthor(x.seller)
+						.addFields({
+							name : '**__Pokemon :__**',
+							value : `${x.rarity} ${x.pokemon} (Lvl. ${x.level})`,
+							inline : false
+						},{
+							name : '**__Nature :__**',
+							value : x.nature,
+							inline : true
+						},{
+							name : '**__Mints used :__**',
+							value : x.mints,
+							inline : true
+						},{
+							name : '**__Ability :__**',
+							value : x.ability,
+							inline : false
+						},{
+							name : "**__Highest Bidder__**",
+							value : x.bidder,
+							inline : true
+						},{
+							name : "**__Current Offer__**",
+							value : x.offer,
+							inline : true
+						},{
+							name : "**__Auto-Buy__**",
+							value : x.autoBuy,
+							inline : true
+						},{
+							name : "**__Accepted Payment__**",
+							value : x.pay,
+							inline : true
+						})
+						.setColor("#aaf0ae")
+						.setTimestamp()
+						.setImage(x.img)
+						.setFooter('Venture Auction Gardens')
+						message.channel.send(embed1)
+					}else{			
+						const embed1 = new Discord.MessageEmbed()
+						.setAuthor(x.seller)
+						.addFields({
+							name : '**__Pokemon :__**',
+							value : x.pokemon,
+							inline : false
+						},{
+							name : "**__Highest Bidder__**",
+							value : x.bidder,
+							inline : true
+						},{
+							name : "**__Current Offer__**",
+							value : x.offer,
+							inline : true
+						},{
+							name : "**__Auto-Buy__**",
+							value : x.autoBuy,
+							inline : true
+						},{
+							name : "**__Accepted Payment__**",
+							value : x.pay,
+							inline : true
+						})
+						.setFooter('Venture Auction Gardens')
+						.setColor("#aaf0ae")
+						.setTimestamp()
+						.setImage(x.img)
+						message.channel.send(embed1)
+					}
 					message.channel.send(x.lc)
 				}
 				let y = await info.getAuc(message.channel.id)
