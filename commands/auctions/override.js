@@ -8,7 +8,7 @@ module.exports = {
   minArgs : 2,
   maxArgs : 2,
   permissions : [],
-  requiredRoles : ['Auctioneer'],
+  requiredRoles : ['Auctioneer', 'Private Room Owner'],
 	requiredId : [],
   callback : async (message, arguments, text) => {
 
