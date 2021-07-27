@@ -147,7 +147,7 @@ module.exports.listen = (client) => {
           arguments.length < minArgs ||
           (maxArgs !== null && arguments.length > maxArgs)
         ) {
-	  if (name === '$' || name === 'bal' || name === 'balance' || name === 'money'){
+	  if (name === '!$' || name === '!bal' || name === '!balance' || name === '!money'){
 	  	return
 	  }
 		
