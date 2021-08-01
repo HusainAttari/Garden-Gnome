@@ -30,16 +30,16 @@ module.exports = {
 
 		//checking for multiplyer
 			if(x === 'm'){
-				bid = parseInt(arguments[0].substring(0,arguments[0].length-1)*1000000)
+				bid = (arguments[0].substring(0,arguments[0].length-1)*1000000)
 			}else if (x === 'k') {
-				bid = parseInt(arguments[0].substring(0,arguments[0].length-1)*1000)
+				bid = (arguments[0].substring(0,arguments[0].length-1)*1000)
 			}else if (x === 'b') {
-				bid =  parseInt(arguments[0].substring(0,arguments[0].length-1)*1000000000)
+				bid = (arguments[0].substring(0,arguments[0].length-1)*1000000000)
 			}else{
-				bid = parseInt(arguments[0])
+				bid = (arguments[0])
 			}
 
-		if (typeof bid === 'number'){
+		if (!isNaN(bid)){
 			//checking for valid upbids
 			if (auc.offer == 0){
 				if (bid<50000){
