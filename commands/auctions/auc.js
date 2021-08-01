@@ -387,81 +387,80 @@ module.exports = {
 					}
 					message.channel.send(x.lc)
 				}
-				let y = await info.getAuc(message.channel.id)
 				
-				if (y.time === 0){
-					if (y.bundle === false){
+				if (x.time === 0){
+					if (x.bundle === false){
 						const embed1 = new Discord.MessageEmbed()
-						.setAuthor(y.seller)
+						.setAuthor(x.seller)
 						.addFields({
 							name : '**__Pokemon :__**',
-							value : `${y.rarity} ${y.pokemon} (Lvl. ${y.level})`,
+							value : `${x.rarity} ${x.pokemon} (Lvl. ${x.level})`,
 							inline : false
 						},{
 							name : '**__Nature :__**',
-							value : y.nature,
+							value : x.nature,
 							inline : true
 						},{
 							name : '**__Mints used :__**',
-							value : y.mints,
+							value : x.mints,
 							inline : true
 						},{
 							name : '**__Ability :__**',
-							value : y.ability,
+							value : x.ability,
 							inline : false
 						},{
 							name : "**__Highest Bidder__**",
-							value : y.bidder,
+							value : x.bidder,
 							inline : true
 						},{
 							name : "**__Current Offer__**",
-							value : y.offer,
+							value : x.offer,
 							inline : true
 						},{
 							name : "**__Auto-Buy__**",
-							value : y.autoBuy,
+							value : x.autoBuy,
 							inline : true
 						},{
 							name : "**__Accepted Payment__**",
-							value : y.pay,
+							value : x.pay,
 							inline : true
 						})
 						.setColor("#aaf0ae")
 						.setTimestamp()
-						.setImage(y.img)
+						.setImage(x.img)
 						.setFooter('Venture Auction Gardens')
 						message.channel.send(embed1)
 					}else{			
 						const embed1 = new Discord.MessageEmbed()
-						.setAuthor(y.seller)
+						.setAuthor(x.seller)
 						.addFields({
 							name : '**__Pokemon :__**',
-							value : y.pokemon,
+							value : x.pokemon,
 							inline : false
 						},{
 							name : "**__Highest Bidder__**",
-							value : y.bidder,
+							value : x.bidder,
 							inline : true
 						},{
 							name : "**__Current Offer__**",
-							value : y.offer,
+							value : x.offer,
 							inline : true
 						},{
 							name : "**__Auto-Buy__**",
-							value : y.autoBuy,
+							value : x.autoBuy,
 							inline : true
 						},{
 							name : "**__Accepted Payment__**",
-							value : y.pay,
+							value : x.pay,
 							inline : true
 						})
 						.setFooter('Venture Auction Gardens')
 						.setColor("#aaf0ae")
 						.setTimestamp()
-						.setImage(y.img)
+						.setImage(x.img)
 						message.channel.send(embed1)
 					}
-					message.channel.send(`**Auction Completed!**\n${y.bidder} meet <@${y.sellerId}> in ${message.guild.channels.cache.get('825240467595329536').toString()} or ${message.guild.channels.cache.get('840078518121398332').toString()}`)
+					message.channel.send(`**Auction Completed!**\n${x.bidder} meet <@${x.sellerId}> in ${message.guild.channels.cache.get('825240467595329536').toString()} or ${message.guild.channels.cache.get('840078518121398332').toString()}`)
 					message.channel.send(info.houseOpen())
 
 					await info.resetAuc(message.channel.id)
