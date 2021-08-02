@@ -311,7 +311,7 @@ module.exports = {
 	  	
 		let timer = setInterval(async f => {
 			let x = await info.getAuc(message.channel.id)
-			if (x.time != 0){
+			if (x.time != -1){
 				await info.updateTime(message.channel.id, -1)
 				if (details.time >= 60 && x.time === 15){
 					if (x.bundle === false){
