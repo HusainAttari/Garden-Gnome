@@ -133,7 +133,7 @@ module.exports.resetAuc = async (channelId) => {
 				nature : '',
 				mints : 0,
 				ability : '',
-				time : 0,
+				time : -1,
 				level : 0,
 				acceptedPay : 'Coins only',
 				bidder : 'No highest bidder',
