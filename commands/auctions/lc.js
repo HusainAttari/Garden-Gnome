@@ -50,7 +50,11 @@ module.exports = {
 				}
 			}
 			if (lc != ''){
-				lc = lc + `${x.rarity} ${x.pokemon}`
+				if (x.bundle === false){
+					lc = lc + `${x.rarity} ${x.pokemon}`
+				}else{
+					lc = lc + 'Bundle!'
+				}
 				message.channel.send('Last call pings set!')
 
 				await info.addLc(message.channel.id, lc)
