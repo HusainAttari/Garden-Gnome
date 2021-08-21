@@ -55,7 +55,7 @@ module.exports = {
 		}
 
 		//checking for valid accepted pay
-		if(arguments.length === 3) {
+		if(arguments.length >= 3) {
 			switch(arguments[2]){
 				case 'all' : 
 				details.pay = 'Coins, Pokes, Stones'
