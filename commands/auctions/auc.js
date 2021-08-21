@@ -88,7 +88,7 @@ module.exports = {
 			message.channel.send('Say `done` when you have info-ed all your pokemons')
 
 			let filter = m => m.author.id === '666956518511345684' || m.author.id === message.author.id	
-			let collector = new Discord.MessageCollector(message.channel, filter, {time : 30000})
+			let collector = new Discord.MessageCollector(message.channel, filter, {time : 60000})
 
 			collector.on('collect', m => {
 				if (m.author.id === message.author.id && m.content.toLowerCase() === 'cancel'){
@@ -101,9 +101,6 @@ module.exports = {
 					i = 1
 				}else if (m.author.id === message.author.id && m.content.toLowerCase() === 'done'){
 					collector.stop()
-				}else if (m.author.id === message.author.id && m.content.toLowerCase() === 'cancel'){
-					details.poke = ''
-					return
 				}
 			})
 			collector.on('end', async collected => {
@@ -165,6 +162,89 @@ module.exports = {
 						await wait(details.time*60*1000)
 						msg.delete()
 					}).catch(err => console.log(err))
+					
+					let timer = setInterval(async f => {
+						let x = await info.getAuc(message.channel.id)
+						if (x.time != -1){
+							await info.updateTime(message.channel.id, -1)
+							if (details.time >= 60 && x.time === 15){
+								const embed1 = new Discord.MessageEmbed()
+								.setAuthor(`${x.seller}'s Auction`)
+								.addFields({
+									name : '**__Pokemon :__**',
+									value : x.pokemon,
+									inline : false
+								},{
+									name : "**__Highest Bidder__**",
+									value : x.bidder,
+									inline : true
+								},{
+									name : "**__Time Remaining__**",
+									value : "15 mins",
+									inline : true
+								},{
+									name : "**__Current Offer__**",
+									value : x.offer,
+									inline : true
+								},{
+									name : "**__Auto-Buy__**",
+									value : x.autoBuy,
+									inline : true
+								},{
+									name : "**__Accepted Payment__**",
+									value : x.pay,
+									inline : true
+								})
+								.setFooter('Venture Auction Gardens')
+								.setColor("#aaf0ae")
+								.setTimestamp()
+								.setImage(x.img)
+								message.channel.send(embed1)
+								message.channel.send(x.lc)
+							}
+				
+							if (x.time === 0){
+								
+								const embed1 = new Discord.MessageEmbed()
+								.setAuthor(`${x.seller}'s Auction`)
+								.addFields({
+									name : '**__Pokemon :__**',
+									value : x.pokemon,
+									inline : false
+								},{
+									name : "**__Highest Bidder__**",
+									value : x.bidder,
+									inline : true
+								},{
+									name : "**__Current Offer__**",
+									value : x.offer,
+									inline : true
+								},{
+									name : "**__Auto-Buy__**",
+									value : x.autoBuy,
+									inline : true
+								},{
+									name : "**__Accepted Payment__**",
+									value : x.pay,
+									inline : true
+								})
+								.setFooter('Venture Auction Gardens')
+								.setColor("#aaf0ae")
+								.setTimestamp()
+								.setImage(x.img)
+								message.channel.send(embed1)
+
+								message.channel.send(`**Auction Completed!**\n${x.bidder} meet <@${x.sellerId}> in ${message.guild.channels.cache.get('825240467595329536').toString()} or ${message.guild.channels.cache.get('840078518121398332').toString()}`)
+								message.channel.send(info.houseOpen())
+
+								await info.resetAuc(message.channel.id)
+
+								clearInterval(timer)
+							}
+						}else{
+							clearInterval(timer)
+						}
+				}, 60000)
 				}
 			})
 
